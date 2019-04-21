@@ -43,3 +43,16 @@ $ unzip pcv_data.zip
 ``` console
 $ pipenv run jupyter notebook
 ```
+
+# ライセンスについて
+
+ipynb ファイルに出力されている画像ファイルのライセンスは Creative Commons Attribution 3.0 (CC BY 3.0) license です
+
+``` text
+These images and data files may be used freely under a Creative Commons Attribution 3.0 (CC BY 3.0) license.
+
+Attribution should preferably cite the book "Programming Computer Vision with Python" by Jan Erik Solem (O'Reilly Media, 2012).
+
+Full license text available here:
+http://creativecommons.org/licenses/by/3.0/
+```
