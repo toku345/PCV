@@ -9,6 +9,7 @@ verify_ssl = true
 jupyter = "*"
 jupytext = "*"
 python-language-server = "*"
+pillow = "*"
 
 [requires]
 python_version = "2.7"
