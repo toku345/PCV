@@ -12,6 +12,5 @@
 #     name: python2
 # ---
 
-print("Hello!")
-
-
+from PIL import Image
+pil_im = Image.open('empire.jpg')
