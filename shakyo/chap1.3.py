@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # ---
 # jupyter:
 #   jupytext:
@@ -80,7 +81,11 @@ print im2
 Image.fromarray(im2)
 
 print im3
-Image.fromarray(im3)
+# Image.fromarray(im3).convert("L")
+Image.fromarray(uint8(im3))
 
 print im4
-Image.fromarray(im4)
+# Image.fromarray(im4).convert('L')
+Image.fromarray(uint8(im4))
+
+
