@@ -89,3 +89,22 @@ print im4
 Image.fromarray(uint8(im4))
 
 
+# +
+# 1.3.4
+from PIL import Image
+from numpy import *
+import imtools
+
+im = array(Image.open('data/AquaTermi_lowcontrast.JPG').convert('L'))
+Image.fromarray(uint8(im))
+# -
+
+
+im2, cdf = imtools.histeq(im)
+im2
+
+cdf
+
+Image.fromarray(uint8(im2))
+
+

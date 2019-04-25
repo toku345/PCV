@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 from PIL import Image
+import numpy as np
 
 
 def get_imlist(path):
@@ -11,4 +12,16 @@ def get_imlist(path):
 def imresize(im, sz):
     """ PILをつかって画像サイズを変更する """
     pil_im = Image.fromarray(uint8(im))
-    return array(pil_im.resize(sz))
+    return np.array(pil_im.resize(sz))
+
+
+def histeq(im, nbr_bins=256):
+    """ グレースケール画像のヒストグラム平坦化 """
+    imhist, bins = np.histogram(im.flatten(), nbr_bins, normed=True)
+    cdf = imhist.cumsum()       # 累積分布関数
+    cdf = 255 * cdf / cdf[-1]   # 正規化
+
+    # cdf を線形補間し、新しいピクセル値とする
+    im2 = np.interp(im.flatten(), bins[:-1], cdf)
+
+    return im2.reshape(im.shape), cdf
