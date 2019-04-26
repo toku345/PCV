@@ -25,3 +25,19 @@ def histeq(im, nbr_bins=256):
     im2 = np.interp(im.flatten(), bins[:-1], cdf)
 
     return im2.reshape(im.shape), cdf
+
+
+def compute_average(imlist):
+    """ 画像の平均を求める """
+
+    # 最初の画像を開き、浮動小数点の配列に変換
+    averageim = np.array(Image.open(imlist[0], 'f'))
+
+    for imname in imlist[1:]:
+        try:
+            averageim += np.array(Image.open(imname))
+        except:
+            print imname + '...skipped'
+    averageim /= len(imlist)
+
+    return np.array(averageim, 'uint8')
